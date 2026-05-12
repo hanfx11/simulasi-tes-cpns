@@ -779,45 +779,253 @@ HTML;
 
     private function referencesFor(string $code, string $subcategory): array
     {
-        $commonSkd = [
+        $skdCore = [
             [
-                'title' => 'BKN - informasi komponen SKD CPNS dan CAT',
+                'title' => 'BKN - Informasi seleksi CPNS dan pelaksanaan SKD berbasis CAT',
                 'url' => 'https://www.bkn.go.id/3-juta-pelamar-cpns-2024-berkompetisi-di-tahap-skd-2/',
             ],
             [
-                'title' => 'Peraturan BPK - PermenPANRB tentang materi SKD',
+                'title' => 'PermenPANRB - Kisi-kisi materi TWK, TIU, dan TKP dalam SKD',
                 'url' => 'https://peraturan.bpk.go.id/Download/135315/Permenpan%20Nomor%2023%20Tahun%202019.pdf',
             ],
         ];
 
-        if ($code === 'TWK') {
-            return array_merge($commonSkd, [
-                [
-                    'title' => 'BPHN - Naskah UUD Negara Republik Indonesia Tahun 1945',
-                    'url' => 'https://bphn.go.id/data/documents/uud_1945.pdf',
+        $references = [
+            'TWK' => [
+                'Pancasila' => [
+                    [
+                        'title' => 'BPIP - Peraturan BPIP tentang Indikator Nilai Pancasila',
+                        'url' => 'https://jdih.bpip.go.id/dokumen/view?id=269',
+                    ],
+                    [
+                        'title' => 'BPIP - Naskah Sumber Arsip Dasar Negara I Masa Sidang BPUPK',
+                        'url' => 'https://bpip.go.id/public/buku/naskah-sumber-arsip-dasar-negara-i/',
+                    ],
                 ],
-                [
-                    'title' => 'Kementerian Pertahanan - nilai dasar bela negara',
-                    'url' => 'https://www.kemhan.go.id/pothan/2018/09/12/kegiatan-ngopi-bareng-bela-negara-melalui-sinergitas-kementerianlembaga-dan-komponen-bangsa-lainnya-kita-wujudkan-gerakan-nasional-bela-negara-guna-menjamin-kelangsungan-hidup-nkri.html',
+                'UUD 1945' => [
+                    [
+                        'title' => 'BPHN - Naskah Undang-Undang Dasar Negara Republik Indonesia Tahun 1945',
+                        'url' => 'https://bphn.go.id/data/documents/uud_1945.pdf',
+                    ],
+                    [
+                        'title' => 'Peraturan BPK - UUD Negara Republik Indonesia Tahun 1945',
+                        'url' => 'https://peraturan.bpk.go.id/Details/101646/uud-no--',
+                    ],
                 ],
-            ]);
-        }
-
-        if ($code === 'TIU') {
-            return array_merge($commonSkd, [
-                [
-                    'title' => 'Peraturan BPK - kisi-kisi kemampuan verbal, numerik, logis, dan analitis',
-                    'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                'Nasionalisme' => [
+                    [
+                        'title' => 'UU No. 24 Tahun 2009 - Bendera, Bahasa, Lambang Negara, dan Lagu Kebangsaan',
+                        'url' => 'https://peraturan.bpk.go.id/Details/38661/uu-no-24-',
+                    ],
+                    [
+                        'title' => 'UU No. 20 Tahun 2023 - Peran ASN dalam penyelenggaraan pemerintahan dan pembangunan nasional',
+                        'url' => 'https://peraturan.bpk.go.id/Details/269470/uu-no-20-tahun2023',
+                    ],
                 ],
-            ]);
-        }
-
-        return array_merge($commonSkd, [
-            [
-                'title' => 'Peraturan BPK - aspek TKP dalam kisi-kisi SKD',
-                'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                'NKRI' => [
+                    [
+                        'title' => 'BPHN - UUD 1945 sebagai dasar bentuk Negara Kesatuan Republik Indonesia',
+                        'url' => 'https://bphn.go.id/data/documents/uud_1945.pdf',
+                    ],
+                    [
+                        'title' => 'UU No. 24 Tahun 2009 - Simbol negara dan identitas kebangsaan',
+                        'url' => 'https://peraturan.bpk.go.id/Details/38661/uu-no-24-',
+                    ],
+                ],
+                'Bhinneka Tunggal Ika' => [
+                    [
+                        'title' => 'UU No. 24 Tahun 2009 - Lambang negara Garuda Pancasila dan semboyan Bhinneka Tunggal Ika',
+                        'url' => 'https://peraturan.bpk.go.id/Details/38661/uu-no-24-',
+                    ],
+                    [
+                        'title' => 'BPIP - Indikator Nilai Pancasila untuk aktualisasi nilai persatuan dan toleransi',
+                        'url' => 'https://jdih.bpip.go.id/dokumen/view?id=269',
+                    ],
+                ],
+                'Integritas' => [
+                    [
+                        'title' => 'UU No. 20 Tahun 2023 - Nilai dasar, kode etik, dan kode perilaku ASN',
+                        'url' => 'https://peraturan.bpk.go.id/Details/269470/uu-no-20-tahun2023',
+                    ],
+                    [
+                        'title' => 'BPIP - Indikator Nilai Pancasila sebagai acuan perilaku berintegritas',
+                        'url' => 'https://jdih.bpip.go.id/dokumen/view?id=269',
+                    ],
+                ],
+                'Bela Negara' => [
+                    [
+                        'title' => 'Kementerian Pertahanan - Nilai Dasar Bela Negara',
+                        'url' => 'https://kms-bpsdm.kemhan.go.id/course/Nilai-Dasar-Bela-Negara',
+                    ],
+                    [
+                        'title' => 'Permenhan No. 27 Tahun 2019 - Pembinaan Kesadaran Bela Negara',
+                        'url' => 'https://www.kemhan.go.id/itjen/wp-content/uploads/2022/07/PERMENHAN-NOMOR-27-TAHUN-2019-PENYELENGGARAAN-PEMBINAAN-KESADARAN-BELA-NEGARA.pdf',
+                    ],
+                ],
+                'Sejarah Perjuangan Bangsa' => [
+                    [
+                        'title' => 'BPIP - Naskah Sumber Arsip Dasar Negara I Masa Sidang BPUPK',
+                        'url' => 'https://bpip.go.id/public/buku/naskah-sumber-arsip-dasar-negara-i/',
+                    ],
+                    [
+                        'title' => 'UU No. 24 Tahun 2009 - Simbol negara sebagai hasil sejarah perjuangan bangsa',
+                        'url' => 'https://peraturan.bpk.go.id/Details/38661/uu-no-24-',
+                    ],
+                ],
             ],
-        ]);
+            'TIU' => [
+                'Sinonim' => [
+                    [
+                        'title' => 'KBBI Daring - Rujukan kosakata baku bahasa Indonesia',
+                        'url' => 'https://kbbi.kemdikbud.go.id/',
+                    ],
+                    [
+                        'title' => 'PermenPANRB - Kisi-kisi kemampuan verbal dalam TIU',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                ],
+                'Antonim' => [
+                    [
+                        'title' => 'KBBI Daring - Rujukan makna kata untuk latihan antonim',
+                        'url' => 'https://kbbi.kemdikbud.go.id/',
+                    ],
+                    [
+                        'title' => 'PermenPANRB - Kisi-kisi kemampuan verbal dalam TIU',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                ],
+                'Analogi Verbal' => [
+                    [
+                        'title' => 'KBBI Daring - Rujukan hubungan makna dan kosakata',
+                        'url' => 'https://kbbi.kemdikbud.go.id/',
+                    ],
+                    [
+                        'title' => 'PermenPANRB - Kisi-kisi kemampuan verbal dalam TIU',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                ],
+                'Silogisme' => [
+                    [
+                        'title' => 'PermenPANRB - Kisi-kisi kemampuan berpikir logis dalam TIU',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                ],
+                'Deret Angka' => [
+                    [
+                        'title' => 'PermenPANRB - Kisi-kisi kemampuan numerik dalam TIU',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                ],
+                'Aritmetika' => [
+                    [
+                        'title' => 'PermenPANRB - Kisi-kisi operasi perhitungan angka dalam TIU',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                ],
+                'Perbandingan' => [
+                    [
+                        'title' => 'PermenPANRB - Kisi-kisi hubungan antarangka dalam TIU',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                ],
+                'Penalaran Analitis' => [
+                    [
+                        'title' => 'PermenPANRB - Kisi-kisi kemampuan berpikir analitis dalam TIU',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                ],
+            ],
+            'TKP' => [
+                'Pelayanan Publik' => [
+                    [
+                        'title' => 'UU No. 25 Tahun 2009 - Pelayanan Publik',
+                        'url' => 'https://peraturan.bpk.go.id/Details/38748/uu-no-25tahun-2009',
+                    ],
+                    [
+                        'title' => 'PP No. 96 Tahun 2012 - Pelaksanaan UU Pelayanan Publik',
+                        'url' => 'https://jdih.kemenkeu.go.id/dok/pp-96-tahun-2012/files',
+                    ],
+                ],
+                'Profesionalisme' => [
+                    [
+                        'title' => 'UU No. 20 Tahun 2023 - ASN profesional dan bebas dari KKN',
+                        'url' => 'https://peraturan.bpk.go.id/Details/269470/uu-no-20-tahun2023',
+                    ],
+                ],
+                'Integritas' => [
+                    [
+                        'title' => 'UU No. 20 Tahun 2023 - Nilai dasar, kode etik, dan kode perilaku ASN',
+                        'url' => 'https://peraturan.bpk.go.id/Details/269470/uu-no-20-tahun2023',
+                    ],
+                    [
+                        'title' => 'PermenPANRB - Integritas diri sebagai aspek TKP',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                ],
+                'Kerja Sama' => [
+                    [
+                        'title' => 'UU No. 20 Tahun 2023 - Nilai dasar ASN dan perilaku kolaboratif',
+                        'url' => 'https://peraturan.bpk.go.id/Details/269470/uu-no-20-tahun2023',
+                    ],
+                    [
+                        'title' => 'PermenPANRB - Kemampuan bekerja sama dalam kelompok sebagai aspek TKP',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                ],
+                'Pengendalian Diri' => [
+                    [
+                        'title' => 'PermenPANRB - Kemampuan mengendalikan diri sebagai aspek TKP',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                    [
+                        'title' => 'UU No. 20 Tahun 2023 - Kode etik dan kode perilaku ASN',
+                        'url' => 'https://peraturan.bpk.go.id/Details/269470/uu-no-20-tahun2023',
+                    ],
+                ],
+                'Adaptasi' => [
+                    [
+                        'title' => 'PermenPANRB - Kemampuan beradaptasi sebagai aspek TKP',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                    [
+                        'title' => 'UU No. 20 Tahun 2023 - Transformasi dan manajemen ASN',
+                        'url' => 'https://peraturan.bpk.go.id/Details/269470/uu-no-20-tahun2023',
+                    ],
+                ],
+                'Teknologi Informasi' => [
+                    [
+                        'title' => 'Perpres No. 95 Tahun 2018 - Sistem Pemerintahan Berbasis Elektronik',
+                        'url' => 'https://peraturan.bpk.go.id/Details/96913/perpres-',
+                    ],
+                    [
+                        'title' => 'UU No. 20 Tahun 2023 - Digitalisasi manajemen ASN',
+                        'url' => 'https://peraturan.bpk.go.id/Details/269470/uu-no-20-tahun2023',
+                    ],
+                ],
+                'Pengambilan Keputusan' => [
+                    [
+                        'title' => 'UU No. 20 Tahun 2023 - Tugas ASN dalam penyelenggaraan kebijakan dan pelayanan publik',
+                        'url' => 'https://peraturan.bpk.go.id/Details/269470/uu-no-20-tahun2023',
+                    ],
+                    [
+                        'title' => 'UU No. 25 Tahun 2009 - Hak, kewajiban, dan penyelenggaraan pelayanan publik',
+                        'url' => 'https://peraturan.bpk.go.id/Details/38748/uu-no-25tahun-2009',
+                    ],
+                ],
+                'Kreativitas dan Inovasi' => [
+                    [
+                        'title' => 'PermenPANRB - Kreativitas dan inovasi sebagai aspek TKP',
+                        'url' => 'https://peraturan.bpk.go.id/Download/123521/PERMENPAN%20NOMOR%2017%20TAHUN%202014.pdf',
+                    ],
+                    [
+                        'title' => 'Perpres No. 95 Tahun 2018 - Inovasi layanan melalui SPBE',
+                        'url' => 'https://peraturan.bpk.go.id/Details/96913/perpres-',
+                    ],
+                ],
+            ],
+        ];
+
+        return array_merge($skdCore, $references[$code][$subcategory] ?? []);
     }
 
     private function seedExamPackage(): void

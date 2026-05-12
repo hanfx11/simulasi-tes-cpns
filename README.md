@@ -1,59 +1,279 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/1%20Full%20Color/laravel-logolockup-full-color.svg" width="360" alt="Laravel Logo">
 </p>
 
-## About Laravel
+<h1 align="center">Persiapan CPNS 2026</h1>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+  <strong>Sistem latihan SKD CPNS berbasis Laravel</strong>
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 12">
+  <img src="https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.2+">
+  <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Filament-Admin-FDAE4B?style=for-the-badge" alt="Filament Admin">
+</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Persiapan CPNS 2026 adalah aplikasi web untuk latihan SKD CPNS secara mandiri. Sistem ini menyediakan modul belajar, bank soal, simulasi ujian berbasis waktu, penilaian otomatis, pembahasan, serta admin panel untuk mengelola konten.
 
-## Learning Laravel
+Konten soal di aplikasi ini adalah latihan original berbasis pola kompetensi SKD CPNS. Aplikasi ini tidak memuat soal asli, bocoran, atau klaim sebagai sumber resmi BKN/panitia seleksi.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Fitur Utama
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Landing page modern untuk menjelaskan sistem.
+- Autentikasi user: register, login, profile, reset password, dan verifikasi email route.
+- Dashboard belajar untuk melihat ringkasan soal, modul, dan akses cepat.
+- Bank soal TWK, TIU, dan TKP dengan filter kategori, subkategori, dan tingkat kesulitan.
+- Detail soal dengan opsi jawaban dan pembahasan.
+- Modul belajar terstruktur dengan heading, materi, tips, latihan singkat, checklist, dan rujukan belajar.
+- Simulasi SKD full berbasis waktu dengan navigasi soal dan fitur tandai ragu-ragu.
+- Autosave jawaban saat peserta memilih opsi.
+- Hasil ujian berisi skor total, skor per kategori, status passing grade, dan pembahasan.
+- Admin panel Filament untuk mengelola data kategori, soal, opsi, modul, paket ujian, user, dan setting.
+- Role user dan admin.
 
-## Laravel Sponsors
+## Cakupan Materi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Sistem ini menyiapkan tiga komponen SKD:
 
-### Premium Partners
+- TWK: Pancasila, UUD 1945, nasionalisme, NKRI, Bhinneka Tunggal Ika, integritas, bela negara, dan sejarah perjuangan bangsa.
+- TIU: sinonim, antonim, analogi verbal, silogisme, deret angka, aritmetika, perbandingan, dan penalaran analitis.
+- TKP: pelayanan publik, profesionalisme, integritas, kerja sama, pengendalian diri, adaptasi, teknologi informasi, pengambilan keputusan, kreativitas, dan inovasi.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Cara Kerja Sistem
 
-## Contributing
+1. User membuka landing page, lalu melakukan register atau login.
+2. Setelah login, user masuk ke dashboard belajar.
+3. User dapat membaca modul untuk memahami konsep TWK, TIU, dan TKP.
+4. User dapat mengerjakan soal dari bank soal untuk latihan per materi.
+5. User dapat memulai simulasi SKD full dari dashboard.
+6. Saat simulasi, jawaban tersimpan otomatis dan user bisa menandai soal ragu-ragu.
+7. Setelah submit, sistem menghitung skor dan menampilkan hasil ujian.
+8. Admin dapat mengelola seluruh data konten melalui panel `/admin`.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Skema Penilaian
 
-## Code of Conduct
+- TWK dan TIU memakai penilaian binary:
+  - benar: 5
+  - salah/kosong: 0
+- TKP memakai penilaian bertingkat:
+  - opsi bernilai 1 sampai 5
+  - kosong: 0
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Passing grade default:
 
-## Security Vulnerabilities
+- TWK: 65
+- TIU: 80
+- TKP: 166
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Stack Teknologi
 
-## License
+- Laravel 12
+- PHP 8.2+
+- MySQL
+- Blade
+- Tailwind CSS
+- Vite
+- Laravel Breeze
+- Filament 5
+- PHPUnit
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Kebutuhan Sistem
+
+Pastikan sudah terpasang:
+
+- PHP 8.2 atau lebih baru
+- Composer
+- Node.js dan npm
+- MySQL atau MariaDB
+- PHP extension untuk MySQL, seperti `pdo_mysql`
+
+Catatan: Vite pada project ini merekomendasikan Node.js 20.19+ atau 22.12+. Build masih bisa berjalan pada beberapa versi lebih rendah, tetapi sebaiknya gunakan versi yang direkomendasikan.
+
+## Instalasi Lokal
+
+Clone repository:
+
+```bash
+git clone https://github.com/hanfx11/persiapan-cpns2026.git simulasi-tes-cpns
+cd simulasi-tes-cpns
+```
+
+Install dependency PHP:
+
+```bash
+composer install
+```
+
+Install dependency frontend:
+
+```bash
+npm install
+```
+
+Buat file environment:
+
+```bash
+cp .env.example .env
+```
+
+Untuk Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Generate application key:
+
+```bash
+php artisan key:generate
+```
+
+Siapkan database MySQL baru, misalnya:
+
+```sql
+CREATE DATABASE simulasi_tes_cpns CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+Lalu sesuaikan konfigurasi database di `.env`:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=simulasi_tes_cpns
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Jalankan migration dan seeder:
+
+```bash
+php artisan migrate --seed
+```
+
+Build asset frontend:
+
+```bash
+npm run build
+```
+
+Jalankan server lokal:
+
+```bash
+php artisan serve
+```
+
+Aplikasi dapat dibuka di:
+
+```text
+http://127.0.0.1:8000
+```
+
+## Mode Development
+
+Untuk menjalankan Vite development server:
+
+```bash
+npm run dev
+```
+
+Di terminal lain, jalankan Laravel:
+
+```bash
+php artisan serve
+```
+
+Project juga menyediakan script Composer development:
+
+```bash
+composer run dev
+```
+
+Script ini menjalankan server Laravel, queue listener, log viewer, dan Vite secara bersamaan.
+
+## Akun Demo
+
+Seeder membuat akun awal berikut:
+
+```text
+Admin
+Email: admin@example.com
+Password: password
+
+User
+Email: user@example.com
+Password: password
+```
+
+Admin panel:
+
+```text
+http://127.0.0.1:8000/admin
+```
+
+Hanya user dengan role `admin` yang dapat mengakses Filament admin panel.
+
+## Data Seeder
+
+Seeder utama berada di:
+
+```text
+database/seeders/CpnsContentSeeder.php
+```
+
+Data awal yang dibuat:
+
+- kategori TWK, TIU, TKP
+- subkategori materi
+- modul belajar
+- 300 soal latihan original
+- opsi jawaban A-E
+- pembahasan soal
+- paket simulasi SKD full
+- passing grade default
+- akun admin dan user demo
+
+Untuk reset database lokal dan mengisi ulang data:
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+## Testing
+
+Jalankan test:
+
+```bash
+php artisan test
+```
+
+Atau lewat Composer:
+
+```bash
+composer test
+```
+
+## Struktur Halaman
+
+- `/` - landing page
+- `/login` - login
+- `/register` - registrasi
+- `/dashboard` - dashboard belajar
+- `/soal` - bank soal
+- `/soal/{question}` - detail soal
+- `/modul` - daftar modul belajar
+- `/modul/{slug}` - detail modul belajar
+- `/ujian/{session}` - halaman simulasi ujian
+- `/ujian/{session}/hasil` - hasil ujian
+- `/admin` - admin panel Filament
+
+## Catatan Konten
+
+Aplikasi ini dibuat untuk latihan dan pembelajaran. Semua soal dan modul bersifat original untuk membantu memahami pola kompetensi SKD CPNS. Jangan menggunakan aplikasi ini untuk mengklaim, menjual, atau menyebarkan soal sebagai soal asli atau bocoran resmi.
+
+## Author
+
+Created by [Hanif](https://github.com/hanfx11).
