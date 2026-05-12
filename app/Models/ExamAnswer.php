@@ -13,6 +13,7 @@ class ExamAnswer extends Model
     protected $fillable = [
         'exam_session_id',
         'question_id',
+        'order_number',
         'selected_option_id',
         'score',
         'is_correct',
@@ -23,6 +24,7 @@ class ExamAnswer extends Model
     protected function casts(): array
     {
         return [
+            'order_number' => 'integer',
             'score' => 'integer',
             'is_correct' => 'boolean',
             'is_flagged' => 'boolean',

@@ -19,8 +19,10 @@ class ExamController extends Controller
     {
         abort_unless($package->status === 'active', 404);
 
-        $questionIds = $package->questions()->pluck('questions.id');
-        abort_if($questionIds->isEmpty(), 422, 'Paket ujian belum memiliki soal.');
+        $questions = $package->questions()
+            ->with('category')
+            ->get();
+        abort_if($questions->isEmpty(), 422, 'Paket ujian belum memiliki soal.');
 
         $session = ExamSession::query()->create([
             'user_id' => $request->user()->id,
@@ -31,9 +33,10 @@ class ExamController extends Controller
             'status' => 'ongoing',
         ]);
 
-        foreach ($questionIds as $questionId) {
+        foreach ($this->sessionQuestionIds($questions) as $index => $questionId) {
             $session->answers()->create([
                 'question_id' => $questionId,
+                'order_number' => $index + 1,
             ]);
         }
 
@@ -154,18 +157,45 @@ class ExamController extends Controller
     {
         $answers = $session->answers()
             ->with(['question.category', 'question.subcategory', 'selectedOption'])
-            ->get()
-            ->keyBy('question_id');
+            ->orderByRaw('order_number IS NULL')
+            ->orderBy('order_number')
+            ->get();
+
+        if ($answers->contains(fn (ExamAnswer $answer) => $answer->order_number !== null)) {
+            return $answers->values();
+        }
+
+        $answersByQuestion = $answers->keyBy('question_id');
 
         if (! $session->examPackage) {
-            return $answers->values();
+            return $answersByQuestion->values();
         }
 
         return $session->examPackage->questions()
             ->pluck('questions.id')
-            ->map(fn ($questionId) => $answers->get($questionId))
+            ->map(fn ($questionId) => $answersByQuestion->get($questionId))
             ->filter()
             ->values();
+    }
+
+    private function sessionQuestionIds(Collection $questions): Collection
+    {
+        $grouped = $questions->groupBy(fn ($question) => $question->category->code);
+        $orderedCodes = ['TWK', 'TIU', 'TKP'];
+        $result = collect();
+
+        foreach ($orderedCodes as $code) {
+            $result = $result->merge(
+                $grouped->get($code, collect())->shuffle()->pluck('id')
+            );
+        }
+
+        return $result->merge(
+            $questions
+                ->reject(fn ($question) => in_array($question->category->code, $orderedCodes, true))
+                ->shuffle()
+                ->pluck('id')
+        )->values();
     }
 
     private function summary(Collection $answers): array
